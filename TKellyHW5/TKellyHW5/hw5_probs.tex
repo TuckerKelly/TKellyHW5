@@ -1,0 +1,335 @@
+
+\documentclass[11pt]{article}
+%%% style file you will need for some commands%%%%%%%%%%%%%%%%%%%%%%
+%% aahomework is the style file I have used to typeset many commands, feel free to use them in your solutions.
+%% bear in mind that if you need to define your command then you will have to make sure that it is not in conflict to my pre-defined command. Otherwise you will need to either use
+%% commands defined by me or edit the style file appropriately.
+
+%%\usepackage{anurag}
+\usepackage{aahomework}
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+%%the \circled command has been used to create text inside circle for grading table.
+
+%%%\geometry{letterpaper, textwidth=17cm, textheight=22cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% THE FOLLOWING IS FOR THE COVER SHEET--FILL IN appropriately%%
+\newcommand{\mycourse}{MATH-200}
+\newcommand{\semesteryear}{Fall 2018}
+\newcommand{\myname}{TYPE YOUR NAME here}  %%TYPE in YOUR NAME HERE  <<<<<<<<<<<<<<<|========================================= (PLEASE PUT YOUR NAME HERE)==========
+\newcommand{\hwnumber}{5} %%TYPE in the HW  number 1,2,3,.. HERE  <<<<<<<<<<<<<<<|========================================= (PLEASE PUT the HW number here)==========
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% cover sheet preamble ends here
+
+%%%%%%%%FOLLOWING counter IS TO AUTOMATE THE NUMBERING OF THE PROBLEMS%%%%%%%%%%%%%
+\newcounter{Quesnumb}  %% this creates the counter
+\setcounter{Quesnumb}{0} %% this sets a specific value to the counter
+%%%%%% the following new command can be used to increment and print the counter  http://chenfuture.wordpress.com/2007/12/31/a-simple-counter/
+\newcommand{\problemnum}{%
+            \addtocounter{Quesnumb}{1}%
+            \arabic{Quesnumb}}
+
+
+%%%% following is NOT TO BE EDITED, DO NOT TYPE ANYTHING HERE, it will receive inputs from what you fill above%%%%%%%%%%%%%%%%%%
+\title{\textbf{\mycourse} \hfill Homework \hwnumber \hfill \textbf{\semesteryear}} %% DO NOT type in HW number here
+\author{\myname} %% DO NOT type in your name here.
+\date{ \textbf{DUE DATE Nov 13, 2018 {\red by 11:00PM (in \textsc{Dropbox})}}} %% DO NOT TYPE in mycourse and/or quarteryear values
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength{\parindent}{0pt} %% paragraphs will not be indented
+\setlength{\parskip}{.25cm} %% space between paragraphs
+\linespread{1.1}
+
+\begin{document}
+\thispagestyle{empty} %%this is to supress the page number on the cover page
+\include{hwcover} %% make sure you have the file "hwcover.tex" in the same folder as your actual homework file
+\renewcommand{\arraystretch}{1} %% this is to make sure that array stretch in "hwcover" is nuetralized.
+
+\clearpage %% these are to reset the page number for the first page of your homework to 1.
+\pagenumbering{arabic} %% these are to reset the page number for the first page of your homework to 1.
+\textbf{Some instructions:}
+\begin{itemize}
+    \item Please follow the instructions for homework submission that are given in the syllabus and on the HW webpage.
+    %%%\item Do not forget \textbf{to staple your HW and attach the cover sheet}.
+    \item In the questions given below \textsf{\bf BLOCH 1.4.18} refers to Bloch's book section 1.4, problem no. 18.
+    \item Please use the \LaTeX~ file that I have provided on the homework page to typeset your homework.
+    \item Please name the files as follows: Suppose Carl F. Gauss was submitting HW \#\hwnumber, then the files should be named as \textit{CGaussHW\hwnumber.tex} and \textit{CGaussHW\hwnumber.pdf}.
+    \item \LaTeX{} users:
+       \begin{itemize}
+            \item Please upload both the \LaTeX and PDF files and follow the instructions written above for naming the files.
+            \item Use the {\blue ``problem'' environment} for questions and the {\blue ``solution'' environment} to type the solutions. For example
+            {\magenta
+            \begin{verbatim}
+                 \begin{solution}
+                     You can start typing your solution here.........
+                 \end{solution}
+            \end{verbatim}
+            }
+             will give you the following output:
+
+                \begin{solution}
+                You can start typing your solution here.........
+                \end{solution}
+
+            \item For writing proofs you can use the following \LaTeX~ environment
+               {\blue
+                \begin{verbatim}
+                    \begin{proof}
+                    My first proof is quite awesome
+                    \end{proof}
+                    \end{verbatim}
+                    }
+                It will give you the following
+                \begin{proof}
+                My first proof is quite awesome
+                \end{proof}
+        \end{itemize}
+        \end{itemize}
+\newpage
+\begin{center}
+\textbf{\blue For writing proofs:}
+\end{center}
+\begin{itemize}
+    \item Declare what kind of proof you are going to use.
+    \item In case you are proving an equivalent statement then before you prove anything first state that equivalent statement and justify why your statement is equivalent to the statement given in the problem.
+    \item You should use complete sentences in English to express each step.
+    \item Your proof should read like a paragraph and not a bulleted list, i.e. the sentences should have a flow and structure.
+    \item Avoid using quantifiers within the sentences, i.e. instead of writing: ``$\exists x \in \bbR$ such that $\ldots$'', you should write ``there exists a real number $x$ such that $\ldots$.''
+\end{itemize}
+%%\vspace*{0.3cm}
+\newpage
+
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% YOU MAY START TYPING YOUR ANSWERS BELOW %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: In my style file aaHWbeginner.sty I have defined two environments "problem" and "solution" that can be used to type in your question and answer respectively as shown below.%%
+
+\begin{problem}{\problemnum}
+For each of the following subsets of $\bbR \times \bbR$, determine whether it can be represented as Cartesian product of two subsets $A$ and $B$ of $\bbR$. If it can be, then find $A$ and $B$, otherwise justify why such a representation is NOT possible.
+\begin{enumerate}[label=\alph*).]
+    \item $\{(x,y) \, | \, x \equiv 0 \pmod{7} \text{ and } y \text{ is a rational number } \leq  10\}$
+    \item $\{(x,y) \, | \, x \text{ is an irrational number and } \sin(\pi y) \neq 0\}$
+    \item $\{(x,y) \, | \, y >x\}$
+    \item $\{(x,y) \, | \, x^2+y^2 <1\}$
+    \item $\{(x,y) \, | \, x+y \in \bbQ\}$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{\problemnum \, \textsf{(BLOCH 3.3.20)}}
+Let $A$ and $B$ be sets. Suppose that $B \subseteq A$. Prove that
+\[(A \times A) - (B \times B) = [(A-B) \times A] \cup [A \times (A-B)].\]
+\end{problem}
+
+\begin{problem}{\problemnum}
+ Let $A=\{x \in \bbQ \, | \, x^2 <5 \, \text{ or } \, x <0\}$. In other words, $A$ is the set of all rational numbers that lie in the interval $(-\infty, \sqrt{5})$. Using proof by contradiction method, show that this set cannot have a largest element.
+ \begin{tcolorbox}[colback=white,colframe=red!65!black,title={Hint}]
+ Suppose $s \in A$ is the largest element of $A$. Then construct a \textbf{rational number} $t$ such that $t>s$ and yet $t \in A$.
+ \end{tcolorbox}
+\end{problem}
+\newpage
+\begin{problem}{\problemnum \, \textsf{(based on BLOCH 3.4.1)}}
+For the following we are given a set $B_k$ for each $k \in \bbN$. Find $\bigcup_{k \in \bbN}B_k$ and $\bigcap_{k \in \bbN}B_k$.
+\begin{enumerate}[label=\alph*).]
+    \item $\displaystyle B_k=\left[\frac{3}{k}, \frac{5k+2}{k}\right) \cup \{10+k\}$.
+    \item $\displaystyle B_k=\left[0, \frac{k+1}{k+2}\right] \cup \left[7, \frac{7k+1}{k}\right)$.
+    \item $\displaystyle B_k=\left\{\frac{m}{10^k} \, | \, m \in \bbZ\right\}$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{\problemnum}
+Prove the following:
+\[\bigcup_{b \in \bbR^{+}} \left\{(x,y) \in \bbR^2 \, | \, x+y=b\right\} \quad \subseteq \quad \bigcap_{s \in \bbR^{-}} \left\{(x,y) \in \bbR^2 \, | \, x+y>s\right\}.\]
+\end{problem}
+
+\begin{problem}{\problemnum}
+\begin{tcolorbox}[colback=red!10!white, colframe=red!50!blue, title=Partition of a set, center title]
+Let us recall the definition of a \textbf{partition of a set $S$}.
+    \begin{define}
+        \label{def:1}
+        A collection of sets $\mathcal{C}$ is a partition of set $S$ if the following hold:
+            \begin{enumerate}
+                \item Every set in the collection $\mathcal{C}$ is non-empty.
+                \item For every two sets $A$ and $B$ in the collection $\mathcal{C}$, either they are equal or they are disjoint.
+                \item $\displaystyle \bigcup_{X \in \mathcal{C}} X = S$, i.e the union of all the sets in the collection make up the entire set $S$.
+            \end{enumerate}
+    \end{define}
+    \end{tcolorbox}
+    Answer the following:
+    \begin{enumerate}[label=\alph*).]
+    \item Which of the following are partitions of $S=\{a,b,c,d,e,f,g\}$? For each collection of subsets that is not a partition of $S$, explain your answer.
+        \begin{enumerate}[label=\roman*).]
+            \item $\mathcal{C}_1=\{\{a,c,e,g\}, \{b,f\}, \{d\}\}$.
+            \item $\mathcal{C}_2=\{\{a,b,c,d\}, \{e,f\}\}$.
+            \item $\mathcal{C}_3=\{S\}$.
+            \item $\mathcal{C}_4=\{\{a\}, \emptyset, \{b,c,d\}, \{e,f,g\}\}$.
+            \item $\mathcal{C}_5=\{\{a,c,d\}, \{b,g\}, \{e\}, \{b,f\}\}$.
+        \end{enumerate}
+    \item Let $S = \{1, 2, \ldots , 12\}$. Give an example of a partition $\mathcal{F}$ of $S$ satisfying ALL of the the following requirements:
+    \begin{itemize}
+    \item $\abs{\mathcal{F}} = 5$,
+    \item there is a subset $\mathcal{K}$ of $\mathcal{F}$ such that $\abs{\mathcal{K}} = 4$ and $\left|\bigcup_{X \in \mathcal{K}}X\right| = 10$ and
+    \item there is no element $B \in  \mathcal{F}$ such that $\abs{B} = 3$.
+    \end{itemize}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{\problemnum}
+ Let the index set $I=\bbR$ and for each $t \in I$ we define the set
+ \[\tcbhighmath{A_t = \left\{(x,y) \in \bbR^2 \, | \, y=tx^2\right\}.}\]
+ \begin{enumerate}[label=\alph*).]
+    \item Give a geometrical description of the sets $A_{0}, A_{1}, A_{\pi}$ and $A_{-\sqrt{2}}$. You don't need to draw pictures/graphs but some description in words is expected which can convey the geometry of the set.
+    \item Find $\displaystyle \bigcap_{t \in I} A_t$? You don't need to prove the answer.
+    \item Will the point $(-2,3) \in \displaystyle \bigcup_{t \in I} A_t$? Prove or disprove.
+    \item Among the points $(0,3)$ and $(3,0)$ which of them belongs to $\displaystyle \bigcup_{t \in I} A_t$. Prove your assertion.
+    \item Prove that
+    \[\bigcup_{t \in I} A_t =\bbR^2 - \{(0,y) \, | \, y \neq 0\}.\]
+ \end{enumerate}
+\end{problem}
+
+%%\newpage
+\begin{problem}{\problemnum}
+For each of the family of sets given below determine (with proof or counterexample, as the case maybe) whether or not it forms a partition of $\bbR^2$.
+\begin{enumerate}[label=\alph*).]
+    \item $\mathcal{C}=\left\{A_{r}\right\}_{r \in \bbR}$, where $A_r=\{(x,y) \in \bbR^2 \, | \, y=(x-r)^2\}$.
+    \item $\mathcal{E}=\left\{B_{r}\right\}_{r \in \bbR}$, where $B_r=\{(x,y) \in \bbR^2 \, | \, y^4-y^2=x-r\}$.
+\end{enumerate}
+\end{problem}
+\newpage
+\begin{problem}{\problemnum}
+Let $\mathcal{F}$ be a family of sets. A set $S$ is called a \textbf{BIGBRO Set} of $\mathcal{F}$ if it satisfies both the properties \textbf{P1 \& P2} listed below.
+\begin{description}
+    \item[P1:] $\mathcal{F} \subseteq \power[S]$.
+    \item[P2:] $\forall \, T \, \big[(\mathcal{F} \subseteq \power[T]) \, \longrightarrow \, (S \subseteq T)\big]$.
+\end{description}
+
+\begin{enumerate}[label=\alph*).]
+    \item For $\mathcal{F}=\big\{\{1,2,3\}\, \, \{2,3,4\}\, \, \{3,4,5\}\big\}$. Find all possible \textbf{BIGBRO sets} $S$ of $\mathcal{F}$.
+    \item For $\mathcal{F}=\big\{[0]_3,\, \{1,2\}\big\}=\big\{\{0, \pm 3, \pm 6, \pm 9, \ldots\},\, \{1,2\}\big\}$. Find all possible \textbf{BIGBRO sets} $S$ of $\mathcal{F}$.
+    \item How many different \textbf{BIGBRO} sets did you find in each of the problems?
+    \item Now we will do this problem \textbf{for a general family of sets} $\mathcal{F}$. Let $\mathcal{F}$ be \textbf{any} non-empty family of sets. Prove that there \colorbox{yellow}{exists exactly one} (\textsf{unique}) set $S$ that can be the \textbf{BIGBRO} set of $\mathcal{F}$. In other words, \textbf{BIGBRO} set is always unique to a family of sets.
+        \begin{tcolorbox}[colback=white,colframe=red!65!black,title={Hint}]
+        First you have to show the existence of such a set $S$. From the examples above you might be able to guess what that should be. Then to show uniqueness, assume there are two sets $S_1$ and $S_2$ that satisfy the conditions given , then show that $S_1=S_2$.
+        \end{tcolorbox}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{\problemnum \, \textsf{(based on BLOCH 5.1.4)}}
+Determine if the following relations on the given sets are reflexive, symmetric, anti-symmetric, asymmetric, irreflexive and/or transitive. If a property does not hold then give a brief reason to justify.
+\begin{enumerate}[label=\alph*).]
+    \item Let $\rel[S]$ be the relation on $\bbR$ defined by $\rel[S]=\{(0,0), (\sqrt{2}, 0), (0, \sqrt{2}), (\sqrt{2}, \sqrt{2})\}$.
+    \item Let $\rel[D]$ be the relation on $\bbN$ defined by $a \rel[D] b \quad \iff \quad a \dv b$ (i.e. $a$ divides $b$) for all $a,b \in \bbN$.
+    \item Let $\rel[T]$ be the relation on $\bbZ \times \bbZ$ (so you should think of $\rel[T]: (\bbZ \times \bbZ) \longrightarrow (\bbZ \times \bbZ$)) defined by $(x,y) \rel[T] (z,w)$ if and only if there is a line in $\bbR^2$ that contains $(x,y)$ and $(z,w)$ and has slope an integer, for all $(x,y), \, (z,w) \in \bbZ \times \bbZ$.
+\end{enumerate}
+\end{problem}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%\begin{problem}{\problemnum}
+%%Just like we solve equations in real numbers, for example, find $x \in \bbR$ such that $a+x=b$ or $ax=b$, we can formulate equations in sets as well.
+%%
+%%Let $U$ be some non-empty set. Suppose we are given sets $A$ and $B$ that are subsets of $U$. We want to solve the equation
+%%\begin{equation}
+%%\label{eq:1}
+%%A \cap X =B
+%%\end{equation}
+%%i.e. we want to find all sets $X \in \power[U]$ that satisfy equation \eqref{eq:1}.
+%%\begin{enumerate}[label=\alph*).]
+%%    \item Let $U=\bbR$, $A=\bbQ \cap [0,2)$, $B=\{0,1,2\}$. If possible, find at least three distinct solutions to equation \eqref{eq:1}.
+%%    \item Let $U=\bbZ$, $A=3\bbZ$, $B=6\bbZ$. If possible, find at least three distinct solutions to equation \eqref{eq:1}.
+%%    \item The exercises given in parts (a) and (b) were to help you understand the concept. Now we want to generalize this. We want to find under what conditions will equation \eqref{eq:1} have a solution and what will that solution look like.
+%%    \begin{enumerate}[label=\roman*).]
+%%        \item Let $U$ be some non-empty set. Suppose we are given sets $A$ and $B$ that are subsets of $U$. Show that equation \eqref{eq:1} has a solution in $X$ if and only if $B \subseteq A$.
+%%        \item In case the solution exist, show that $X$ is a solution to equation \eqref{eq:1} if and only if there exists a set $T \subseteq U-A$ with $X=B \cup T$.
+%%    \end{enumerate}
+%%\end{enumerate}
+%%\end{problem}
+%%
+%%
+
+
+
+%%\begin{problem}{\problemnum}
+%%This problem primarily tests your understanding of the notations so do it very carefully. You may want to see \textbf{definition 3.4.3 on page 112 of Bloch's textbook}.\\
+%%In class and worksheet 6 we have defined union and intersection of an \textsf{indexed family of sets}. We can take that concept one step further. Given a family of sets $\mathcal{F}$ (with or without any indexing) we define $\bigcup \mathcal{F}$ and $\bigcap \mathcal{F}$ as:
+%%\begin{align*}
+%%\bigcup \mathcal{F}&=\bigcup_{A \in \mathcal{F}}A =\{x \, | \, x \in A \text{ for some } A \in \mathcal{F}\}.\\
+%%\bigcap \mathcal{F}&=\bigcap_{A \in \mathcal{F}}A =\{x \, | \, x \in A \text{ for all } A \in \mathcal{F}\}.
+%%\end{align*}
+%%\begin{enumerate}[label=\alph*).]
+%%    \item Let $\mathcal{F}=\big\{\{1,2,3,4\}\, \, \{2,3,4,5\}\, \, \{3,4,5,6\}\big\}$. Find $\bigcup \mathcal{F}$ and $\bigcap \mathcal{F}$.
+%%    \item Prove or disprove: Suppose $\mathcal{F}$ is a family of \textbf{non-empty} sets such that $\bigcup \mathcal{F}=S$ and $\bigcap \mathcal{F}=\emptyset$, then $\mathcal{F}$ must be a partition of set $S$.
+%%    \item Prove the following theorem
+%%    \begin{theorem}
+%%    Let $B$ be a set and $\mathcal{F}$ be a family of sets. If $\,\,\bigcup \mathcal{F} \subseteq B$, then $\mathcal{F} \subseteq \power[B]$.
+%%    \end{theorem}
+%%\end{enumerate}
+%%\end{problem}
+%%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%\begin{problem}{\problemnum \, \textsf{(BLOCH 3.3.22)}}
+%%%Let $A$ be some set. Suppose that $\abs{A}=n$. Then compare the cardinality of $\power[A \times A] \times \power[A \times A]$ with that of the set $\power[\power[A]]$. \textsf{\colorbox{yellow}{Hint:} your answer will depend on what $n$ is.}
+%%%\end{problem}
